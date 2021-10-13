@@ -8,7 +8,7 @@ namespace appClassHerenciaCS_Consola
 {
     class Punto3D : Punto
     {
-        private double z;
+        protected double z;
 
         public double Z
         {
@@ -21,7 +21,6 @@ namespace appClassHerenciaCS_Consola
                 z = value;
             }
         }
-
         public Punto3D() : base()
         {
             z = 0;
@@ -30,9 +29,25 @@ namespace appClassHerenciaCS_Consola
         {
             this.z = z;
         }
+        public double Distancia(Punto3D p)
+        {
+            double d = 0;
+
+            double dx = x - p.x;
+
+            double dz = z - p.z;
+
+            double cdx = Math.Pow(dx, 2);
+
+            double cdz = Math.Pow(dz, 2);
+
+            d = Math.Sqrt(cdx + cdz);
+
+            return d;
+        }
         public override string ToString()
         {
-            return base.ToString() + " Z=" + z;
+            return base.ToString() + " Z = " + z;
         }
     }
 }
